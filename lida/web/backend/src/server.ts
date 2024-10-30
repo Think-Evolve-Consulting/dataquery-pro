@@ -9,6 +9,7 @@ import { RequestContext } from './context';
 import fileUpload from 'express-fileupload';
 
 import { grnRouter } from './routes/grnRouter';
+import { tableRouter } from './routes/tableRouter';
 
 declare global {
   namespace Express {
@@ -49,6 +50,7 @@ app.options('*', cors());
 
 //route
 app.use('/api/grn', grnRouter);
+app.use('/api/tables', tableRouter);
 
 //OCR CORS issue
 var allowlist = ['http://localhost:8080/demo'];
