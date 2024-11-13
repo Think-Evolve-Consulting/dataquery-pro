@@ -1,4 +1,0 @@
-recursive-include  lida/web/ui * 
-recursive-exclude  notebooks *
-recursive-exclude  docs *
-recursive-exclude  tests *
