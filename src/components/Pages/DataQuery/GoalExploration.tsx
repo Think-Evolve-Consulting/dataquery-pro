@@ -9,8 +9,7 @@ import type { GoalType } from '@/types/GoalType';
 const GOALS: GoalType[] = [
   {
     id: 1,
-    question:
-      'What is the distribution of age of the individuals in the LA Riots dataset?',
+    question: 'Map the CLM data to the available inventory',
     answer:
       'histogram of age This tells about the age distribution of the individuals in the LA Riots dataset, which can help identify patterns or trends in the data. scatter plot of longitude vs latitude This tells about the geographical distribution of the locations in the LA Riots dataset, which can help identify patterns or trends in the data. scatter plot of longitude vs latitude This tells about the geographical distribution of the locations in the LA Riots dataset, which can help identify patterns or trends in the data.',
     tag: 'Scatter plot of Horsepower vs Acceleration',
@@ -18,8 +17,7 @@ const GOALS: GoalType[] = [
 
   {
     id: 2,
-    question:
-      'What is the relationship between the longitude and latitude of the locations in the LA Riots dataset?',
+    question: 'What are the top 5 materials by amount in local currency?',
     answer:
       'scatter plot of longitude vs latitude This tells about the geographical distribution of the locations in the LA Riots dataset, which can help identify patterns or trends in the data. scatter plot of longitude vs latitude This tells about the geographical distribution of the locations in the LA Riots dataset, which can help identify patterns or trends in the data. scatter plot of longitude vs latitude This tells about the geographical distribution of the locations in the LA Riots dataset, which can help identify patterns or trends in the data. ',
     tag: 'Scatter plot of Horsepower vs Acceleration',
@@ -28,7 +26,7 @@ const GOALS: GoalType[] = [
   {
     id: 3,
     question:
-      'What is the distribution of age of the individuals in the LA Riots dataset?',
+      'What are the top 5 materials by description invested in the month of March 2024?',
     answer:
       'histogram of age This tells about the age distribution of the individuals in the LA Riots dataset, which can help identify patterns or trends in the data.',
     tag: 'Scatter plot of Horsepower vs Acceleration',
@@ -36,8 +34,7 @@ const GOALS: GoalType[] = [
 
   {
     id: 4,
-    question:
-      'What is the distribution of age of the individuals in the LA Riots dataset?',
+    question: 'Generate a piechart for the top 5 vendors based on total value.',
     answer:
       'histogram of age This tells about the age distribution of the individuals in the LA Riots dataset, which can help identify patterns or trends in the data. scatter plot of longitude vs latitude This tells about the geographical distribution of the locations in the LA Riots dataset, which can help identify patterns or trends in the data. scatter plot of longitude vs latitude This tells about the geographical distribution of the locations in the LA Riots dataset, which can help identify patterns or trends in the data.',
     tag: 'Scatter plot of Horsepower vs Acceleration',
@@ -46,7 +43,7 @@ const GOALS: GoalType[] = [
   {
     id: 5,
     question:
-      'What is the distribution of age of the individuals in the LA Riots dataset?',
+      'Pie chart for top 5 material descriptions invested in March 2024.',
     answer:
       'histogram of age This tells about the age distribution of the individuals in the LA Riots dataset, which can help identify patterns or trends in the data.',
     tag: 'Scatter plot of Horsepower vs Acceleration',
@@ -54,34 +51,16 @@ const GOALS: GoalType[] = [
 
   {
     id: 6,
-    question:
-      'What is the distribution of age of the individuals in the LA Riots dataset?',
+    question: 'Line chart for inventory levels of catalogue number ___.',
     answer:
       'histogram of age This tells about the age distribution of the individuals in the LA Riots dataset, which can help identify patterns or trends in the data.',
     tag: 'Scatter plot of Horsepower vs Acceleration',
   },
   {
     id: 7,
-    question:
-      'What is the distribution of age of the individuals in the LA Riots dataset?',
+    question: 'Line chart for inventory levels of material code ___.',
     answer:
       'histogram of age This tells about the age distribution of the individuals in the LA Riots dataset, which can help identify patterns or trends in the data.',
-    tag: 'Scatter plot of Horsepower vs Acceleration',
-  },
-  {
-    id: 8,
-    question:
-      'What is the distribution of age of the individuals in the LA Riots dataset?',
-    answer:
-      'histogram of age This tells about the age distribution of the individuals in the LA Riots dataset, which can help identify patterns or trends in the data.scatter plot of longitude vs latitude This tells about the geographical distribution of the locations in the LA Riots dataset, which can help identify patterns or trends in the data. ',
-    tag: 'Scatter plot of Horsepower vs Acceleration',
-  },
-  {
-    id: 9,
-    question:
-      'What is the distribution of age of the individuals in the LA Riots dataset?',
-    answer:
-      'histogram of age This tells about the age distribution of the individuals in the LA Riots dataset, which can help identify patterns or trends in the data. scatter plot of longitude vs latitude This tells about the geographical distribution of the locations in the LA Riots dataset, which can help identify patterns or trends in the data. scatter plot of longitude vs latitude This tells about the geographical distribution of the locations in the LA Riots dataset, which can help identify patterns or trends in the data.',
     tag: 'Scatter plot of Horsepower vs Acceleration',
   },
 ];

@@ -16,7 +16,7 @@ const Footer = () => {
             <Link
               target="_blank"
               className="inline-block border-b border-primary  hover:text-primary"
-              href="#"
+              href="https://www.thinkevolveconsulting.com/"
             >
               ThinkEvolve Labs.
             </Link>

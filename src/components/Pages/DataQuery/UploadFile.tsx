@@ -46,7 +46,7 @@ const UploadFile = ({
     <div className="flex w-full flex-col gap-1">
       <div
         {...getRootProps()}
-        className="flex w-full cursor-pointer flex-col items-center justify-center gap-2 rounded-lg border border-dashed bg-gray-50/40 p-5 dark:bg-transparent sm:aspect-square"
+        className="flex w-full cursor-pointer flex-col items-center justify-center gap-2 rounded-lg border border-dashed bg-gray-50/40 p-5 hover:border-primary dark:bg-transparent hover:dark:border-primary sm:aspect-square"
       >
         <input {...getInputProps()} />
 
@@ -57,10 +57,6 @@ const UploadFile = ({
         <p className="text-center  text-sm font-medium leading-5 text-slate-700 dark:dark:text-dark-10">
           Upload {title}
         </p>
-
-        {/* <p className="text-center  text-xs font-medium leading-4 text-slate-500 opacity-80 dark:dark:text-dark-10 dark:opacity-60">
-          Upload .xlxs or .csv files to generate a visualization.
-        </p> */}
       </div>
 
       {lastUpdatedAt && (
