@@ -1,12 +1,41 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { ErrorIcon } from '@/components/Icons/ErrorIcon';
 import { UploadIcon } from '@/components/Icons/UploadIcon';
+import type { TableNameType } from '@/types/TableNameType';
 
 import { UploadFile } from './UploadFile';
 
-const VisualizationFileSection = () => {
-  const [errorFileType, setErrorFileType] = useState<string | null>(null);
+// const TABLE_LISTS: TableNameType[] = [
+//   'grnReport',
+//   'StockReport',
+//   'purchaseReport',
+//   'inactiveWBSE',
+//   'inventoryLevels',
+// ];
+
+interface VisualizationFileSectionProps {
+  setError: React.Dispatch<React.SetStateAction<string | null>>;
+  uploadReport: (tableName: TableNameType, file: File) => void;
+}
+
+const VisualizationFileSection = ({
+  setError,
+  uploadReport,
+}: VisualizationFileSectionProps) => {
+  // const getData = async () => {
+  //   setIsLoading(true);
+  //   await getTablesUpdatedDate(TABLE_LISTS);
+  //   setIsLoading(false);
+  // };
+
+  // useEffect(() => {
+  //   getData();
+  // }, []);
+
+  const onFileUploadRejection = (file: File) => {
+    setError(`Uploaded file type (${file?.type}) not allowed. Allowed types are:
+      csv, excel.`);
+  };
 
   return (
     <div className="flex flex-col gap-2">
@@ -22,69 +51,65 @@ const VisualizationFileSection = () => {
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6">
         <UploadFile
           title="GRN"
-          onFileUpload={() => {}}
-          lastUpdatedAt={new Date()}
-          onFileUploadRejection={(file) => {
-            setErrorFileType(file?.type);
+          tableName="grnReport"
+          onFileUpload={(file) => {
+            uploadReport('grnReport', file);
           }}
+          lastUpdatedAt={new Date()}
+          onFileUploadRejection={onFileUploadRejection}
         />
 
         <UploadFile
           title="Stock Statement"
-          onFileUpload={() => {}}
-          lastUpdatedAt={new Date()}
-          onFileUploadRejection={(file) => {
-            setErrorFileType(file?.type);
+          onFileUpload={(file) => {
+            uploadReport('StockReport', file);
           }}
+          lastUpdatedAt={new Date()}
+          onFileUploadRejection={onFileUploadRejection}
+          tableName="StockReport"
         />
 
         <UploadFile
           title="Purchase Report"
-          onFileUpload={() => {}}
-          onFileUploadRejection={(file) => {
-            setErrorFileType(file?.type);
+          onFileUpload={(file) => {
+            uploadReport('purchaseReport', file);
           }}
+          onFileUploadRejection={onFileUploadRejection}
+          tableName="purchaseReport"
         />
 
         <UploadFile
           title="TECO Report"
-          onFileUpload={() => {}}
-          onFileUploadRejection={(file) => {
-            setErrorFileType(file?.type);
+          onFileUpload={(file) => {
+            uploadReport('inactiveWBSE', file);
           }}
+          onFileUploadRejection={onFileUploadRejection}
+          tableName="inactiveWBSE"
         />
 
         <UploadFile
           title="Reservation Report"
-          onFileUpload={() => {}}
-          lastUpdatedAt={new Date()}
-          onFileUploadRejection={(file) => {
-            setErrorFileType(file?.type);
+          onFileUpload={(file) => {
+            uploadReport('inventoryLevels', file);
           }}
+          lastUpdatedAt={new Date()}
+          onFileUploadRejection={onFileUploadRejection}
+          tableName="inventoryLevels"
         />
 
         <UploadFile
           title="CLM Data"
-          onFileUpload={() => {}}
+          onFileUpload={(file) => {
+            uploadReport('StockReport', file);
+          }}
           lastUpdatedAt={new Date()}
           onFileUploadRejection={(file) => {
-            setErrorFileType(file?.type);
+            setError(`Uploaded file type (${file?.type}) not allowed. Allowed types are:
+            csv, excel.`);
           }}
+          tableName="StockReport" // Need to fix when table name confirm
         />
       </div>
-
-      {errorFileType && (
-        <div className="flex flex-col gap-2.5">
-          <p className="flex flex-row items-center justify-start gap-1 text-base font-semibold leading-6 text-red-400">
-            <ErrorIcon />
-            <span>An error occurred. Please try again later.</span>
-          </p>
-          <div className="rounded border border-red-400 bg-secondary p-2 px-3 text-base font-normal leading-5 text-slate-700 dark:bg-slate-800 dark:text-dark-10">
-            Uploaded file type ({errorFileType}) not allowed. Allowed types are:
-            csv, excel.
-          </div>
-        </div>
-      )}
     </div>
   );
 };

@@ -1,0 +1,10 @@
+version: '3'
+services:
+  app:
+    image: project_a_image
+    ports:
+      - "8000:80"
+    volumes:
+      - ./project_a
+    environment:
+      - NODE_ENV=development

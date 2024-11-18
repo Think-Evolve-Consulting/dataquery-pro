@@ -15,6 +15,16 @@ module.exports = {
           10: '#F7FAFC',
         },
       },
+
+      animation: {
+        leftToRight: 'leftToRight 1.8s linear infinite',
+      },
+      keyframes: {
+        leftToRight: {
+          '0%': { transform: 'translateX(-80%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+      },
     },
   },
   plugins: [lineClamp],

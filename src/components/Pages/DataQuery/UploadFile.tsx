@@ -1,23 +1,33 @@
-import dayjs from 'dayjs';
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import type { FileRejection } from 'react-dropzone';
 import { useDropzone } from 'react-dropzone';
 
 import { FileIcon } from '@/components/Icons/FileIcon';
+import { axios } from '@/services';
 
 interface UploadFileProps {
   title: string;
   lastUpdatedAt?: string | Date;
   onFileUpload: (file: File) => void;
   onFileUploadRejection: (file: File) => void;
+  tableName:
+    | 'grnReport'
+    | 'StockReport'
+    | 'purchaseReport'
+    | 'inactiveWBSE'
+    | 'inventoryLevels';
 }
 
 const UploadFile = ({
   title,
-  lastUpdatedAt,
+
   onFileUpload,
   onFileUploadRejection,
+  tableName,
 }: UploadFileProps) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [lastUpdatedAt, setLastUpdatedAt] = useState<string | null>(null);
+
   const onDrop = useCallback(
     (acceptedFiles: File[], fileRejections: FileRejection[]) => {
       if (fileRejections?.length) {
@@ -42,6 +52,30 @@ const UploadFile = ({
     onDrop,
   });
 
+  const getLastUpdatedDate = () => {
+    if (isLoading) return;
+
+    setIsLoading(true);
+
+    axios
+      .get(`/get-report-update-date?table_name=${tableName}`)
+      .then((response) => {
+        if (response?.status === 200 && response?.data?.last_update_date) {
+          setLastUpdatedAt(response?.data?.last_update_date);
+        }
+      })
+      .catch(() => {})
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
+  useEffect(() => {
+    if (tableName) {
+      getLastUpdatedDate();
+    }
+  }, [tableName]);
+
   return (
     <div className="flex w-full flex-col gap-1">
       <div
@@ -61,7 +95,7 @@ const UploadFile = ({
 
       {lastUpdatedAt && (
         <p className="text-center  text-sm font-normal leading-5 text-slate-500 dark:dark:text-dark-10">
-          Last Updated: {dayjs(lastUpdatedAt)?.format('DD/MM/YY')}
+          Last Updated: {lastUpdatedAt}
         </p>
       )}
     </div>

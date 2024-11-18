@@ -6,9 +6,30 @@ body {
   @apply dark:bg-gray-900;
 }
 
+.loader {
+  width: 28px;
+  height: 28px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+
+  @apply border-gray-200 border-b-primary dark:border-b-primary dark:border-white;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .custom-scroll {
   --sb-track-color: #edf2f7;
-  --sb-thumb-color: #045CD4;
+  --sb-thumb-color: #045cd4;
   --sb-size: 8px;
 }
 
@@ -30,8 +51,7 @@ body {
 
 @supports not selector(::-webkit-scrollbar) {
   .custom-scroll {
-    scrollbar-color: var(--sb-thumb-color)
-                     var(--sb-track-color);
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
   }
 }
 .zoomIn {
@@ -41,24 +61,24 @@ body {
   animation-duration: 0.4s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-  }
-  @-webkit-keyframes zoomIn {
+}
+@-webkit-keyframes zoomIn {
   0% {
-  opacity: 0;
-  -webkit-transform: scale3d(.3, .3, .3);
-  transform: scale3d(.3, .3, .3);
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
   }
   50% {
-  opacity: 1;
+    opacity: 1;
   }
-  }
-  @keyframes zoomIn {
+}
+@keyframes zoomIn {
   0% {
-  opacity: 0;
-  -webkit-transform: scale3d(.3, .3, .3);
-  transform: scale3d(.3, .3, .3);
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
   }
   50% {
-  opacity: 1;
+    opacity: 1;
   }
-  } 
+}

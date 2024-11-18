@@ -220,6 +220,13 @@ const GenerationSettingsModal = ({
                       Maximum number of tokens to generate.
                     </p>
                   </div>
+
+                  {/* <input
+                    id="default-range"
+                    type="range"
+                    value="20"
+                    className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 dark:bg-gray-700"
+                  /> */}
                 </div>
 
                 <div className="flex flex-col gap-1">
