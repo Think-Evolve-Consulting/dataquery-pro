@@ -1,6 +1,7 @@
 export type TableNameType =
-  | 'grnReport'
-  | 'StockReport'
-  | 'purchaseReport'
-  | 'inactiveWBSE'
-  | 'inventoryLevels';
+  | 'grnreport'
+  | 'stockreport'
+  | 'purchasereport'
+  | 'tecoreport'
+  | 'reservationreport'
+  | 'clmreport';

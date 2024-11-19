@@ -1,7 +1,7 @@
 version: '3'
 services:
   app:
-    image: project_a_image
+    image: data_query_a_image
     ports:
       - "8000:80"
     volumes:

@@ -22,7 +22,7 @@ interface ResponseData {
 const Index = () => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const [data, setData] = useState<ResponseData | null>(null);
+  const [, setData] = useState<ResponseData | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const uploadReport = (tableName: TableNameType, file: File) => {
@@ -78,18 +78,14 @@ const Index = () => {
                 </div>
               )}
 
-              {data && (
-                <>
-                  {/* Goal Exploration */}
-                  <GoalExploration />
+              {/* Goal Exploration */}
+              <GoalExploration />
 
-                  {/* Report Generation */}
-                  <ReportGeneration />
+              {/* Report Generation */}
+              <ReportGeneration />
 
-                  {/* Tab */}
-                  <DataQueryTab />
-                </>
-              )}
+              {/* Tab */}
+              <DataQueryTab />
             </>
           )}
 

@@ -51,9 +51,9 @@ const VisualizationFileSection = ({
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6">
         <UploadFile
           title="GRN"
-          tableName="grnReport"
+          tableName="grnreport"
           onFileUpload={(file) => {
-            uploadReport('grnReport', file);
+            uploadReport('grnreport', file);
           }}
           lastUpdatedAt={new Date()}
           onFileUploadRejection={onFileUploadRejection}
@@ -62,52 +62,52 @@ const VisualizationFileSection = ({
         <UploadFile
           title="Stock Statement"
           onFileUpload={(file) => {
-            uploadReport('StockReport', file);
+            uploadReport('stockreport', file);
           }}
           lastUpdatedAt={new Date()}
           onFileUploadRejection={onFileUploadRejection}
-          tableName="StockReport"
+          tableName="stockreport"
         />
 
         <UploadFile
           title="Purchase Report"
           onFileUpload={(file) => {
-            uploadReport('purchaseReport', file);
+            uploadReport('purchasereport', file);
           }}
           onFileUploadRejection={onFileUploadRejection}
-          tableName="purchaseReport"
+          tableName="purchasereport"
         />
 
         <UploadFile
           title="TECO Report"
           onFileUpload={(file) => {
-            uploadReport('inactiveWBSE', file);
+            uploadReport('tecoreport', file);
           }}
           onFileUploadRejection={onFileUploadRejection}
-          tableName="inactiveWBSE"
+          tableName="tecoreport"
         />
 
         <UploadFile
           title="Reservation Report"
           onFileUpload={(file) => {
-            uploadReport('inventoryLevels', file);
+            uploadReport('reservationreport', file);
           }}
           lastUpdatedAt={new Date()}
           onFileUploadRejection={onFileUploadRejection}
-          tableName="inventoryLevels"
+          tableName="reservationreport"
         />
 
         <UploadFile
           title="CLM Data"
           onFileUpload={(file) => {
-            uploadReport('StockReport', file);
+            uploadReport('clmreport', file);
           }}
           lastUpdatedAt={new Date()}
           onFileUploadRejection={(file) => {
             setError(`Uploaded file type (${file?.type}) not allowed. Allowed types are:
             csv, excel.`);
           }}
-          tableName="StockReport" // Need to fix when table name confirm
+          tableName="clmreport"
         />
       </div>
     </div>

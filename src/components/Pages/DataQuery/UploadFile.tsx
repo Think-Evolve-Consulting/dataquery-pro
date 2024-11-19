@@ -4,18 +4,14 @@ import { useDropzone } from 'react-dropzone';
 
 import { FileIcon } from '@/components/Icons/FileIcon';
 import { axios } from '@/services';
+import type { TableNameType } from '@/types/TableNameType';
 
 interface UploadFileProps {
   title: string;
   lastUpdatedAt?: string | Date;
   onFileUpload: (file: File) => void;
   onFileUploadRejection: (file: File) => void;
-  tableName:
-    | 'grnReport'
-    | 'StockReport'
-    | 'purchaseReport'
-    | 'inactiveWBSE'
-    | 'inventoryLevels';
+  tableName: TableNameType;
 }
 
 const UploadFile = ({
