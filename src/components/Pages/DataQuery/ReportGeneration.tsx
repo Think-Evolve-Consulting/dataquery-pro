@@ -50,6 +50,21 @@ const ReportGeneration = () => {
     }
   }, [goal]);
 
+  const downloadCsv = () => {
+    // Step 1: Create a Blob from the CSV string
+    const blob = new Blob([generatedData?.report || ''], { type: 'text/csv' });
+
+    // Step 2: Create a temporary download link
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'Report Generation.csv';
+    link.click();
+
+    // Step 3: Clean up the URL object
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div>
       <div className="flex flex-col gap-2">
@@ -108,26 +123,20 @@ const ReportGeneration = () => {
               <p className="text-lg font-semibold leading-5 text-slate-700 dark:dark:text-dark-10">
                 {generatedData?.query}
               </p>
-
-              <p className="text-sm font-normal leading-5 text-slate-700 dark:dark:text-dark-10">
-                {generatedData?.report}
-              </p>
-
-              {/* <p className="text-sm font-normal leading-5 text-primary">
-            {goal?.tag}
-          </p> */}
             </div>
 
             {/* Graphs and Code section */}
             <div className="mt-2 grid grid-cols-1 gap-4 lg:grid-cols-2">
-              <div className="relative rounded-md border border-secondary px-2 pt-4 dark:border-[#e2e8f045]">
-                <a
-                  href={generatedData?.visualization}
-                  download={'graph.png'}
-                  className="absolute right-4 top-4 rounded-md border border-primary p-1 text-primary"
-                >
-                  <PiDownloadSimpleFill size={24} />
-                </a>
+              <div className="flex flex-col gap-4 rounded-md border border-secondary px-2 pt-4 dark:border-[#e2e8f045]">
+                <div className="self-end">
+                  <button
+                    onClick={() => downloadCsv()}
+                    className="flex items-center justify-center gap-2 rounded-md border border-primary px-4 py-1.5 text-sm font-medium text-primary"
+                  >
+                    <PiDownloadSimpleFill size={24} />
+                    DOWNLOAD REPORT
+                  </button>
+                </div>
 
                 <Image
                   src={generatedData?.visualization || ''}
@@ -135,7 +144,7 @@ const ReportGeneration = () => {
                   height={1000}
                   alt="Graph"
                   className="object-fit cursor-pointer rounded bg-white"
-                  onClick={() => setIsOpenGraphModal(true)}
+                  onClick={() => setIsOpenGraphModal(false)}
                 />
               </div>
 

@@ -86,7 +86,7 @@ const VISUALIZATION_LIBRARY_LIST: {
 
 const GenerationSetting = () => {
   const [visualizationLibrary, setVisualizationLibrary] =
-    useState<OptionType | null>(VISUALIZATION_LIBRARY_LIST?.[2] || null);
+    useState<OptionType | null>(VISUALIZATION_LIBRARY_LIST?.[1] || null);
   const [isOpenGenerationSettingModal, setIsOpenGenerationSettingModal] =
     useState(false);
 

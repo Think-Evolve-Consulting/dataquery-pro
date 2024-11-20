@@ -9,17 +9,17 @@ import type { GoalType } from '@/types/GoalType';
 const GOALS: GoalType[] = [
   {
     id: 1,
-    question: 'Map the CLM data to the available inventory',
+    question: 'Map the CLM data to available inventory',
     answer:
-      'histogram of age This tells about the age distribution of the individuals in the LA Riots dataset, which can help identify patterns or trends in the data. scatter plot of longitude vs latitude This tells about the geographical distribution of the locations in the LA Riots dataset, which can help identify patterns or trends in the data. scatter plot of longitude vs latitude This tells about the geographical distribution of the locations in the LA Riots dataset, which can help identify patterns or trends in the data.',
+      'Material requirement from product managers are mapped to existing stock inventory. This is done by matching either the catalogue code OR the material description provided by the user.',
     tag: 'Scatter plot of Horsepower vs Acceleration',
   },
 
   {
     id: 2,
-    question: 'What are the top 5 materials by amount in local currency?',
+    question: 'What are the top 5 materials by amount in Local currency?',
     answer:
-      'scatter plot of longitude vs latitude This tells about the geographical distribution of the locations in the LA Riots dataset, which can help identify patterns or trends in the data. scatter plot of longitude vs latitude This tells about the geographical distribution of the locations in the LA Riots dataset, which can help identify patterns or trends in the data. scatter plot of longitude vs latitude This tells about the geographical distribution of the locations in the LA Riots dataset, which can help identify patterns or trends in the data. ',
+      'A bar chart showing the top five(5) materials purchased over the entire master data. Users can request for specific cuts by financial year or for specific months etc.',
     tag: 'Scatter plot of Horsepower vs Acceleration',
   },
 
@@ -28,7 +28,7 @@ const GOALS: GoalType[] = [
     question:
       'What are the top 5 materials by description invested in the month of March 2024?',
     answer:
-      'histogram of age This tells about the age distribution of the individuals in the LA Riots dataset, which can help identify patterns or trends in the data.',
+      'A bar chart which shows the top 5 materials by their descriptive names, which were invested in a particular month or year.',
     tag: 'Scatter plot of Horsepower vs Acceleration',
   },
 
@@ -36,31 +36,30 @@ const GOALS: GoalType[] = [
     id: 4,
     question: 'Generate a piechart for the top 5 vendors based on total value.',
     answer:
-      'histogram of age This tells about the age distribution of the individuals in the LA Riots dataset, which can help identify patterns or trends in the data. scatter plot of longitude vs latitude This tells about the geographical distribution of the locations in the LA Riots dataset, which can help identify patterns or trends in the data. scatter plot of longitude vs latitude This tells about the geographical distribution of the locations in the LA Riots dataset, which can help identify patterns or trends in the data.',
+      'The piechart shows the dependence on the top five (5) vendors in the inventory. This can be either by value or by the frequency with which materials were bought from a specific vendor.',
     tag: 'Scatter plot of Horsepower vs Acceleration',
   },
 
   {
     id: 5,
-    question:
-      'Pie chart for top 5 material descriptions invested in March 2024.',
+    question: 'Pie chart for top 5 material description invested in March 2024',
     answer:
-      'histogram of age This tells about the age distribution of the individuals in the LA Riots dataset, which can help identify patterns or trends in the data.',
+      'A pie chart which shows the top 5 materials by their descriptive names, which were invested in a particular month or year. A bar chart can also be requested by the user. The user can also request this data by material code or by catalogue number.',
     tag: 'Scatter plot of Horsepower vs Acceleration',
   },
 
   {
     id: 6,
-    question: 'Line chart for inventory levels of catalogue number ___.',
+    question: 'Line chart for inventory levels of catalogue number ____.',
     answer:
-      'histogram of age This tells about the age distribution of the individuals in the LA Riots dataset, which can help identify patterns or trends in the data.',
+      'This shows the historical changes in the consumption pattern of materials identified by their catalogue numbers. This insight will be used to predict future patterns of consumption.',
     tag: 'Scatter plot of Horsepower vs Acceleration',
   },
   {
     id: 7,
-    question: 'Line chart for inventory levels of material code ___.',
+    question: 'Line Chart for inventory levels of material code ____.',
     answer:
-      'histogram of age This tells about the age distribution of the individuals in the LA Riots dataset, which can help identify patterns or trends in the data.',
+      'This shows the historical changes in the consumption pattern of materials identified by their material code. This insight will be used to predict future patterns of consumption.',
     tag: 'Scatter plot of Horsepower vs Acceleration',
   },
 ];
