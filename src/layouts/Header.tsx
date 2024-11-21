@@ -10,6 +10,7 @@ import { useDarkMode } from '@/contexts/DarkMode';
 
 import Container from './Container';
 
+const DASHBOARD_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL || '#';
 const Header = () => {
   const router = useRouter();
 
@@ -56,6 +57,17 @@ const Header = () => {
                         : 'bg-gray-200'
                     )}
                   />
+                </Link>
+
+                <Link
+                  href={DASHBOARD_URL}
+                  target="_black"
+                  className={twJoin(
+                    'relative px-4 pb-3 pt-2 text-sm font-medium leading-5 text-slate-900 hover:text-primary dark:text-dark-10 hover:dark:text-primary'
+                  )}
+                >
+                  Dashboard
+                  <span className="absolute -bottom-1 left-0 h-1 w-full rounded-t-md bg-gray-200" />
                 </Link>
 
                 <Link
@@ -108,6 +120,14 @@ const Header = () => {
                   className="w-full border-l-4 border-l-primary bg-secondary px-4 py-2 text-base  font-medium leading-5 text-primary dark:bg-slate-800"
                 >
                   Data Query
+                </Link>
+
+                <Link
+                  href={DASHBOARD_URL}
+                  target="_blank"
+                  className="w-full border-l-4 border-l-primary bg-secondary px-4 py-2 text-base  font-medium leading-5 text-primary dark:bg-slate-800"
+                >
+                  Dashboard
                 </Link>
 
                 <Link
