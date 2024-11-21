@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import { LuSendHorizonal } from 'react-icons/lu';
 import { PiDownloadSimpleFill } from 'react-icons/pi';
 
-import { ErrorIcon } from '@/components/Icons/ErrorIcon';
 import { VisualizationIcon } from '@/components/Icons/VisualizationIcon';
 import { SkeletonLoader } from '@/components/Loader/SkeletonLoader';
 import { GraphModal } from '@/components/Modals/GraphModal';
@@ -46,7 +45,6 @@ const ReportGeneration = () => {
     const question = goal?.question;
     if (question) {
       setPrompt(question);
-      handleGenerateReport(question);
     }
   }, [goal]);
 
@@ -77,8 +75,8 @@ const ReportGeneration = () => {
         </div>
 
         <p className="text-sm font-normal leading-5 text-slate-700 dark:dark:text-dark-10">
-          Select a goal above or describe a new visualization goal to generate a
-          visualization.
+          Select a report above or describe a new visualization report to
+          generate a visualization.
         </p>
 
         <div className="flex gap-2 rounded border border-secondary p-3 dark:border-[#e2e8f045]">
@@ -126,68 +124,48 @@ const ReportGeneration = () => {
             </div>
 
             {/* Graphs and Code section */}
-            <div className="mt-2 grid grid-cols-1 gap-4 lg:grid-cols-2">
-              <div className="flex flex-col gap-4 rounded-md border border-secondary px-2 pt-4 dark:border-[#e2e8f045]">
-                <div className="self-end">
+            {generatedData?.visualization && (
+              <div className="mt-2 grid grid-cols-1 gap-4 lg:grid-cols-2">
+                <div className="flex flex-col gap-4 rounded-md border border-secondary px-2 pt-4 dark:border-[#e2e8f045]">
+                  <div className="self-end">
+                    <a
+                      href={generatedData?.visualization}
+                      download={'graph.png'}
+                      className="flex items-center justify-center gap-2 rounded-md border border-primary p-1.5 text-sm font-medium text-primary"
+                    >
+                      <PiDownloadSimpleFill size={24} />
+                    </a>
+                  </div>
+
+                  <Image
+                    src={generatedData?.visualization || ''}
+                    width={1000}
+                    height={1000}
+                    alt="Graph"
+                    className="object-fit cursor-pointer rounded bg-white"
+                    onClick={() => setIsOpenGraphModal(false)}
+                  />
+                </div>
+
+                <div>
                   <button
                     onClick={() => downloadCsv()}
-                    className="flex items-center justify-center gap-2 rounded-md border border-primary px-4 py-1.5 text-sm font-medium text-primary"
+                    className="flex w-full items-center justify-center gap-2 rounded-md border border-primary px-4 py-1.5 text-sm font-medium text-primary lg:w-fit"
                   >
                     <PiDownloadSimpleFill size={24} />
                     DOWNLOAD REPORT
                   </button>
                 </div>
 
-                <Image
-                  src={generatedData?.visualization || ''}
-                  width={1000}
-                  height={1000}
-                  alt="Graph"
-                  className="object-fit cursor-pointer rounded bg-white"
-                  onClick={() => setIsOpenGraphModal(false)}
-                />
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <p className="flex flex-row items-center justify-start gap-1 text-xs font-normal leading-5 text-slate-700 dark:dark:text-dark-10">
+                {/* <p className="flex flex-row items-center justify-start gap-1 text-xs font-normal leading-5 text-slate-700 dark:dark:text-dark-10">
                   <ErrorIcon className="size-5" />
                   <span>
                     How was this visualization created? See the specifications
                     and code below.
                   </span>
-                </p>
-
-                <div className="h-full rounded-md border border-secondary px-2 py-4 dark:border-[#e2e8f045]">
-                  {/* <Image
-                src={'/assets/graph.png'}
-                width={1000}
-                height={1000}
-                alt="Graph"
-                className="object-fit rounded bg-white"
-              /> */}
-
-                  {/* <SyntaxHighlighter language="python" style={monokai}>
-              {`import seaborn as sns
-import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
-
-# solution plan
-# i. Create a scatter plot of Horsepower vs Acceleration
-# ii. Add a regression line to the plot
-# iii. Add a legend with various colors
-def plot(data: pd.DataFrame):
-
-    plt.figure(figsize=(10,6))
-    sns.regplot(x="Horsepower", y="Acceleration", data=data, ci=None)
-    plt.title('What is the relationship between Horsepower and Acceleration?', wrap=True)
-    return plt;
-
-chart = plot(data)`}
-            </SyntaxHighlighter> */}
-                </div>
+                </p> */}
               </div>
-            </div>
+            )}
           </>
         )}
       </div>

@@ -78,12 +78,12 @@ const GoalExploration = () => {
       <div className="flex flex-row items-center justify-start gap-1">
         <IoBulbOutline size={24} className="text-slate-700 dark:text-dark-10" />
         <p className=" text-xl font-semibold leading-5 text-slate-700 dark:dark:text-dark-10">
-          Goal Exploration
+          Report Exploration
         </p>
       </div>
 
       <p className="text-sm font-normal leading-5 text-slate-700 dark:dark:text-dark-10">
-        A list of automatically generated data exploration goals (hypothesis)
+        A list of automatically generated data exploration reports (hypothesis)
         based on the data summary above.
       </p>
 
@@ -100,7 +100,7 @@ const GoalExploration = () => {
           />
 
           <span className="text-xs font-normal text-slate-700 dark:text-dark-10">
-            Goals ({GOALS?.length})
+            Reports ({GOALS?.length})
           </span>
         </button>
 
