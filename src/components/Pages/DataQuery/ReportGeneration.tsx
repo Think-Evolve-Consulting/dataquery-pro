@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import { LuSendHorizonal } from 'react-icons/lu';
+import { LuSendHorizontal } from 'react-icons/lu';
 import { PiDownloadSimpleFill } from 'react-icons/pi';
 
 import { VisualizationIcon } from '@/components/Icons/VisualizationIcon';
@@ -94,7 +94,7 @@ const ReportGeneration = () => {
             onClick={() => handleGenerateReport(prompt || '')}
             disabled={isLoading || !prompt}
           >
-            <LuSendHorizonal className="text-white" />
+            <LuSendHorizontal className="text-white" />
             <span className="text-base font-normal text-white">Generate</span>
           </button>
         </div>
