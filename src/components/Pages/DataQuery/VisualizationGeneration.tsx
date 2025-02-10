@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import { LuSendHorizonal } from 'react-icons/lu';
+import { LuSendHorizontal } from 'react-icons/lu';
 import { PiDownloadSimpleFill } from 'react-icons/pi';
 
 import { ErrorIcon } from '@/components/Icons/ErrorIcon';
@@ -47,7 +47,7 @@ const VisualizationGeneration = () => {
             role="button"
             className="ring-l-none flex cursor-pointer  flex-row items-center gap-1 rounded bg-primary p-2.5 px-5   ring-primary transition duration-500 hover:brightness-110 focus:ring"
           >
-            <LuSendHorizonal className="text-white" />
+            <LuSendHorizontal className="text-white" />
             <span className="text-base font-normal text-white">Generate</span>
           </button>
         </div>
