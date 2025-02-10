@@ -62,6 +62,13 @@ const GOALS: GoalType[] = [
       'This shows the historical changes in the consumption pattern of materials identified by their material code. This insight will be used to predict future patterns of consumption.',
     tag: 'Scatter plot of Horsepower vs Acceleration',
   },
+  {
+    id: 8,
+    question: 'Identify inventory mapped to inactive WBSE.',
+    answer:
+      'This generates a report by mapping existing inventory to inactive WBSE elements.',
+    tag: 'Scatter plot of Horsepower vs Acceleration',
+  },
 ];
 
 const GoalExploration = () => {
