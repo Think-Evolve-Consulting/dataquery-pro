@@ -1,10 +1,10 @@
-version: '3'
+version: '3.8'
+
 services:
-  app:
-    image: data_query_a_image
+  platform-engineering:
+    build:
+      context: .
     ports:
-      - "8000:80"
-    volumes:
-      - ./project_a
-    environment:
-      - NODE_ENV=development
+      - "3000:3000"
+    env_file:
+      - .env

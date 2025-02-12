@@ -6,18 +6,19 @@ import { RiCloseLargeFill } from 'react-icons/ri';
 import { twJoin } from 'tailwind-merge';
 
 import { Logo } from '@/components/Icons/Logo';
+import { useAppConfigration } from '@/contexts/AppConfigration';
 import { useDarkMode } from '@/contexts/DarkMode';
 
 import Container from './Container';
 
-const DASHBOARD_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL || '#';
 const Header = () => {
   const router = useRouter();
-
+  const { configration } = useAppConfigration();
   const { toggleDarkMode, isDarkMode } = useDarkMode();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const DASHBOARD_URL = configration?.DASHBOARD_URL || '#';
   return (
     <header className="pb-8 pt-10">
       <Container>

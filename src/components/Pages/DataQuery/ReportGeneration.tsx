@@ -7,9 +7,11 @@ import { PiDownloadSimpleFill } from 'react-icons/pi';
 import { VisualizationIcon } from '@/components/Icons/VisualizationIcon';
 import { SkeletonLoader } from '@/components/Loader/SkeletonLoader';
 import { GraphModal } from '@/components/Modals/GraphModal';
+import { useAppConfigration } from '@/contexts/AppConfigration';
 import { useDataQueryForm } from '@/contexts/DataQueryForm';
 
 const ReportGeneration = () => {
+  const { configration } = useAppConfigration();
   const { goal } = useDataQueryForm();
 
   const [isLoading, setIsLoading] = useState(false);
@@ -25,7 +27,7 @@ const ReportGeneration = () => {
   const handleGenerateReport = (query: string) => {
     setIsLoading(true);
     axios
-      .get(`/generate-report?query=${query}`)
+      .get(`${configration?.API_ENDPOINT}/generate-report?query=${query}`)
       .then((response) => {
         if (response?.status === 200 && response?.data) {
           setGeneratedData({

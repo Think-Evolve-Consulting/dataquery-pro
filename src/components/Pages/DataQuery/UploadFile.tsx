@@ -3,6 +3,7 @@ import type { FileRejection } from 'react-dropzone';
 import { useDropzone } from 'react-dropzone';
 
 import { FileIcon } from '@/components/Icons/FileIcon';
+import { useAppConfigration } from '@/contexts/AppConfigration';
 import { axios } from '@/services';
 import type { TableNameType } from '@/types/TableNameType';
 
@@ -21,6 +22,7 @@ const UploadFile = ({
   onFileUploadRejection,
   tableName,
 }: UploadFileProps) => {
+  const { configration } = useAppConfigration();
   const [isLoading, setIsLoading] = useState(false);
   const [lastUpdatedAt, setLastUpdatedAt] = useState<string | null>(null);
 
@@ -54,7 +56,9 @@ const UploadFile = ({
     setIsLoading(true);
 
     axios
-      .get(`/get-report-update-date?table_name=${tableName}`)
+      .get(
+        `${configration?.API_ENDPOINT}/get-report-update-date?table_name=${tableName}`
+      )
       .then((response) => {
         if (response?.status === 200 && response?.data?.last_update_date) {
           setLastUpdatedAt(response?.data?.last_update_date);
@@ -67,10 +71,10 @@ const UploadFile = ({
   };
 
   useEffect(() => {
-    if (tableName) {
+    if (tableName && configration?.API_ENDPOINT) {
       getLastUpdatedDate();
     }
-  }, [tableName]);
+  }, [tableName, configration?.API_ENDPOINT]);
 
   return (
     <div className="flex w-full flex-col gap-1">

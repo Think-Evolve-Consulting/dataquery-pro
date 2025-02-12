@@ -1,0 +1,12 @@
+export type AppConfigrationType = {
+  API_ENDPOINT?: string;
+  DASHBOARD_URL?: string;
+  YOUTUBE_CLM_VIDEO?: string;
+  YOUTUBE_GET_INSIGHTS_VIDEO?: string;
+  YOUTUBE_GET_TECO_VIDEO?: string;
+  YOUTUBE_GET_CATCODE_VIDEO?: string;
+  YOUTUBE_GET_STOCK_UPLOAD?: string;
+  YOUTUBE_GET_MATDESC_VIDEO?: string;
+  YOUTUBE_GET_PURCHASE_VIDEO?: string;
+  YOUTUBE_GET_MATCODE_VIDEO?: string;
+};

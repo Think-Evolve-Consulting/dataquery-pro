@@ -7,6 +7,7 @@ import { GenerationSetting } from '@/components/Pages/DataQuery/GenerationSettin
 import { GoalExploration } from '@/components/Pages/DataQuery/GoalExploration';
 import { ReportGeneration } from '@/components/Pages/DataQuery/ReportGeneration';
 import { VisualizationFileSection } from '@/components/Pages/DataQuery/VisualizationFileSection';
+import { useAppConfigration } from '@/contexts/AppConfigration';
 import Container from '@/layouts/Container';
 import { Meta } from '@/layouts/Meta';
 import { axios } from '@/services';
@@ -20,6 +21,7 @@ interface ResponseData {
 }
 
 const Index = () => {
+  const { configration } = useAppConfigration();
   const [isLoading, setIsLoading] = useState(false);
 
   const [, setData] = useState<ResponseData | null>(null);
@@ -33,7 +35,10 @@ const Index = () => {
     formData.append('file', file);
 
     axios
-      .post(`/upload-report?table_name=${tableName}`, formData)
+      .post(
+        `${configration?.API_ENDPOINT}/upload-report?table_name=${tableName}`,
+        formData
+      )
       .then((response) => {
         if (response?.status === 200 && response?.data) {
           setData(response.data);
